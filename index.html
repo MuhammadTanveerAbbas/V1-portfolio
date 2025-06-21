@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="Icon.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Tanveer – Web Developer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="content-fit">
+            <div class="site-info">
+                <a href="#banner" class="site-title">TANVEER</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#description">Expertise</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="banner" class="section">
+        <div class="content-fit">
+            <div class="title" data-before="BUSINESS WEBSITE SPECIALIST">M TANVEER ABBAS</div>
+        </div>
+    </section>
+
+    <section id="intro" class="section">
+        <div class="content-fit">
+            <div class="number">01</div>
+            <div class="des">
+                <h2 class="title">Web Solutions for Business</h2>
+                <p>I create efficient and reliable web applications that enhance online presence and customer
+                    engagement. My
+                    focus is on clean architecture, scalability, and seamless performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="description" class="section">
+        <div class="content-fit">
+            <div class="number">02</div>
+            <div class="des">
+                <h2 class="title">MERN & Next.js Expertise</h2>
+                <p>I specialize in building robust, scalable applications using the MERN stack and Next.js framework.
+                    From
+                    startup ventures to enterprise-level platforms, I deliver solutions that directly align with your
+                    business
+                    objectives and drive measurable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="content-fit">
+            <div class="number">03</div>
+            <div class="des">
+                <h2 class="title">Get in Touch</h2>
+                <table>
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <a href="mailto:muhammadtanveerabbas.dev@gmail.com" title="Send Email">
+                                Muhammad Tanveer Abbas
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LinkedIn:</td>
+                        <td>
+                            <a href="https://linkedin.com/in/muhammadtanveerabbas" target="_blank" rel="noopener"
+                                title="View LinkedIn Profile">
+                                Muhammad Tanveer Abbas
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GitHub:</td>
+                        <td>
+                            <a href="https://github.com/muhammadtanveerabbas" target="_blank" rel="noopener"
+                                title="View GitHub Profile">
+                                Muhammad Tanveer Abbas
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="sign">&copy; Muhammad Tanveer Abbas</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="container3D"></div>
+
+    <script>
+        document.querySelectorAll("nav a[href^='#']").forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                const offset = document.querySelector("header").offsetHeight;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            });
+        });
+    </script>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

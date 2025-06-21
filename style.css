@@ -1,0 +1,344 @@
+@import url('https://fonts.cdnfonts.com/css/devil-breeze');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/bimbo');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font: 0.875rem/1.6 'Poppins', sans-serif;
+    color: #cfe8ff;
+    background: #0f0f1a;
+    overflow-x: hidden;
+    padding-top: 6rem;
+    /* space for fixed header */
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(95%, 75rem);
+    height: 4.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    border-radius: 0.75rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-fit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+    column-gap: 2rem;
+}
+
+/* Logo */
+.site-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.125rem;
+}
+
+.site-title {
+    font-family: 'Devil Breeze', cursive;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #6ab5ff;
+    line-height: 1.1;
+    text-decoration: none;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    font-family: 'Devil Breeze', cursive;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: bold;
+    text-decoration: none;
+    color: #6ab5ff;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6ab5ff;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Sections with scroll offset fix */
+.section,
+#banner,
+#contact {
+    padding-top: calc(6rem + 1rem);
+    margin-top: -6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 9vh;
+    width: min(95%, 75rem);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Banner */
+#banner .title {
+    font-family: 'Devil Breeze', cursive;
+    font-weight: bold;
+    font-size: clamp(3.5rem, 8vw, 10rem);
+    text-align: center;
+    color: #6ab5ff;
+    position: relative;
+    line-height: 1;
+}
+
+#banner .title::before {
+    content: attr(data-before);
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    color: #1e344d;
+    z-index: -1;
+    font-size: 3em;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+/* Number style */
+.number {
+    font-family: 'Devil Breeze', cursive;
+    font-size: clamp(4rem, 10vw, 12rem);
+    color: #3a4b70;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+/* Section content */
+.content-fit .des .title {
+    font-family: 'Devil Breeze', cursive;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    color: #6ab5ff;
+}
+
+.content-fit .des p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.8;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* Contact Table */
+#contact table {
+    width: 100%;
+    max-width: 45rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+#contact td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(30, 52, 77, 0.3);
+    vertical-align: middle;
+}
+
+#contact td:first-child {
+    font-weight: 600;
+    color: #6ab5ff;
+    font-size: 0.95rem;
+    width: 25%;
+    text-align: left;
+}
+
+#contact td:last-child a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #6ab5ff;
+    text-decoration: underline;
+    cursor: pointer;
+    word-wrap: break-word;
+}
+
+#contact tr:hover td {
+    background-color: rgba(106, 181, 255, 0.05);
+}
+
+#contact tr:last-child td {
+    border-bottom: none;
+}
+
+/* Signature */
+.sign {
+    font-family: 'Bimbo', cursive;
+    font-size: 2.5rem;
+    color: #6ab5ff;
+    margin-top: 2rem;
+}
+
+/* 3D Container */
+#container3D {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.9;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* ========== Responsive Styles ========== */
+@media (max-width: 1024px) {
+    .content-fit {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 1.2rem;
+        text-align: center;
+    }
+
+    .number {
+        margin-right: 0;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    nav a {
+        font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+    }
+
+    .section,
+    #banner,
+    #contact {
+        padding-top: calc(4rem + 1rem);
+        margin-top: -4rem;
+        margin-bottom: 9vh;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #contact table {
+        font-size: 0.95rem;
+    }
+
+    #contact td {
+        padding: 0.8rem 1rem;
+    }
+
+    .sign {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: auto;
+        padding: 0.8rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .site-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .section,
+    #banner,
+    #contact {
+        padding-top: calc(3rem + 1rem);
+        margin-top: -2rem;
+        margin-bottom: 5vh;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .content-fit .des p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .sign {
+        font-size: 1.5rem;
+    }
+
+    #contact td:first-child {
+        width: 30%;
+    }
+
+    #contact td:last-child {
+        width: 70%;
+    }
+}

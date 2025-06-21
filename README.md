@@ -1,4 +1,4 @@
-# 🌐 Tanveer Abbas – Business Website Specialist
+# 🌐 Minimal Portfolio
 
 > Elevating your brand with **scalable, clean, and performant web solutions**  
 > Featuring **responsive UI, smooth navigation, and immersive 3D visuals**

@@ -3,6 +3,17 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 import { gsap } from "https://cdn.skypack.dev/gsap";
 
+// Smooth nav scroll
+document.querySelectorAll("nav a[href^='#']").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    const offset = document.querySelector("header").offsetHeight;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  });
+});
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   35,
@@ -14,30 +25,29 @@ camera.position.z = 14;
 
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 document.getElementById("container3D").appendChild(renderer.domElement);
 
 scene.add(new THREE.AmbientLight(0xffffff, 1.3));
-
 const dirLight = new THREE.DirectionalLight(0xffffff, 1);
 dirLight.position.set(500, 500, 500);
 scene.add(dirLight);
 
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
-
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 
 let model = null;
 let mixer = null;
-
 const clock = new THREE.Clock();
 let idleClock = 0;
 let pulseClock = 0;
 
 const scrollRange = document.body.scrollHeight - window.innerHeight;
 const screenWidthWorldUnits = 6;
+
+const isMobile = window.innerWidth < 768;
 
 const sectionMap = {
   banner: { pos: [0, -1, 0], rot: [0, 1.5, 0] },
@@ -81,7 +91,6 @@ function animate() {
   pulseClock += delta;
 
   dirLight.intensity = 1 + Math.sin(pulseClock * 3) * 0.1;
-
   if (mixer) mixer.update(delta);
 
   if (model) {
@@ -89,20 +98,18 @@ function animate() {
     const targetX =
       screenWidthWorldUnits - scrollPercent * 2 * screenWidthWorldUnits;
 
-    // Smooth interpolation
     model.position.x += (targetX - model.position.x) * 0.05;
     model.position.y +=
       (Math.cos(idleClock * 0.8) * 0.2 - model.position.y) * 0.05;
     model.rotation.y += delta * 0.5;
-
     model.lookAt(camera.position);
   }
 
   renderer.render(scene, camera);
 }
-
 animate();
 
+// Lazy load 3D Model
 new IntersectionObserver(
   (entries, observer) => {
     entries.forEach(({ isIntersecting }) => {
@@ -110,18 +117,18 @@ new IntersectionObserver(
         loader.load("homelander.glb", (gltf) => {
           model = gltf.scene;
 
-          // Center model
+          // Center and scale
           const box = new THREE.Box3().setFromObject(model);
           const size = new THREE.Vector3();
           box.getSize(size);
           const center = new THREE.Vector3();
           box.getCenter(center);
-
           model.position.sub(center);
 
-          // Uniform scale to fit scene
+          // Responsive scaling
           const maxDim = Math.max(size.x, size.y, size.z);
-          model.scale.setScalar(3 / maxDim);
+          const scale = isMobile ? 1.5 : 3;
+          model.scale.setScalar(scale / maxDim);
 
           scene.add(model);
 
@@ -130,7 +137,7 @@ new IntersectionObserver(
             mixer.clipAction(gltf.animations[0]).play();
           }
 
-          onSectionScroll(); // sync position on load
+          onSectionScroll(); // position sync
         });
 
         observer.disconnect();

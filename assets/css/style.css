@@ -1,6 +1,7 @@
-@import url('https://fonts.cdnfonts.com/css/devil-breeze');
-@import url('https://fonts.cdnfonts.com/css/poppins');
-@import url('https://fonts.cdnfonts.com/css/bimbo');
+/* Optimized font loading with display: swap and fallback stacks */
+@import url('https://fonts.cdnfonts.com/css/devil-breeze?display=swap');
+@import url('https://fonts.cdnfonts.com/css/poppins?display=swap');
+@import url('https://fonts.cdnfonts.com/css/bimbo?display=swap');
 
 /* ========== Reset & Base ========== */
 * {
@@ -15,7 +16,7 @@ html {
 }
 
 body {
-    font: 0.875rem/1.6 'Poppins', sans-serif;
+    font: 0.875rem/1.6 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     color: #ffffff;
     background: #000000;
     overflow-x: hidden;
@@ -94,7 +95,7 @@ header {
 }
 
 .site-title {
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.05em;
@@ -117,7 +118,7 @@ nav ul {
 }
 
 nav a {
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: 1rem;
     font-weight: bold;
     color: #808080;
@@ -289,7 +290,7 @@ nav a:hover::after {
     content: 'Sections';
     display: block;
     color: #ffffff;
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0 2rem 1rem;
@@ -318,7 +319,7 @@ nav a:hover::after {
     padding: 1.5rem 2rem;
     color: #ffffff;
     text-decoration: none;
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     position: relative;
@@ -447,7 +448,7 @@ body.light-theme .toggle-icon span {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: clamp(4rem, 15vw, 15rem);
     font-weight: bold;
     color: #808080;
@@ -463,7 +464,7 @@ body.light-theme .toggle-icon span {
 }
 
 #banner .title {
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: clamp(3rem, 8vw, 8rem);
     font-weight: bold;
     color: #ffffff;
@@ -479,7 +480,7 @@ body.light-theme .toggle-icon span {
 }
 
 .content-fit .des .title {
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: clamp(2rem, 5vw, 3.5rem);
     color: #ffffff;
     margin-bottom: 1.5rem;
@@ -546,7 +547,7 @@ body.light-theme .toggle-icon span {
 
 /* ========== Signature ========== */
 .sign {
-    font-family: 'Bimbo', cursive;
+    font-family: 'Bimbo', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: 2rem;
     color: #808080;
     margin-top: 2rem;
@@ -614,7 +615,7 @@ body.light-theme .toggle-icon span {
 }
 
 .page-title {
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: clamp(2rem, 5vw, 3rem);
     color: #ffffff;
     text-align: center;
@@ -665,7 +666,7 @@ body.light-theme .toggle-icon span {
 }
 
 .image-placeholder {
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: 1.5rem;
     color: #808080;
     text-align: center;
@@ -676,7 +677,7 @@ body.light-theme .toggle-icon span {
 }
 
 .project-content h3 {
-    font-family: 'Devil Breeze', cursive;
+    font-family: 'Devil Breeze', 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: 1.5rem;
     color: #ffffff;
     margin-bottom: 0.75rem;
@@ -879,17 +880,21 @@ body.light-theme .social-link:hover {
         white-space: pre;
         text-align: center;
         line-height: 0.9;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: calc(50% + 3rem);
     }
 
     #banner .title {
-        font-size: clamp(2.5rem, 7vw, 6rem);
-        width: 100%;
-        padding: 0;
+        font-size: clamp(3rem, 8vw, 7rem);
+        width: 100vw;
+        margin-left: calc(-50vw + 50% + 3rem);
         text-align: center;
-        margin: 0;
-        left: 50%;
-        transform: translateX(-50.5%);
+        padding: 0;
+        box-sizing: border-box;
         position: relative;
+        top: -8rem;
     }
 
     .content-fit .des p {

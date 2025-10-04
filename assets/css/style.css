@@ -884,9 +884,12 @@ body.light-theme .social-link:hover {
     #banner .title {
         font-size: clamp(2.5rem, 7vw, 6rem);
         width: 100%;
-        padding: 0 1rem;
+        padding: 0;
         text-align: center;
-        margin: 0 auto;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50.5%);
+        position: relative;
     }
 
     .content-fit .des p {

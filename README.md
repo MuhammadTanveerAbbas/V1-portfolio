@@ -54,9 +54,8 @@ Provides a simple and smooth browsing experience
 Highlights projects and contact details effectively
 
 ---
-
 <div align="center">
 
-✨ Designed and Developed with ❤️ by **muhammadtanveerabbas** ✨
+Designed and Developed with 🧠 by **Muhammad Tanveer Abbas** 🌟
 
 </div>

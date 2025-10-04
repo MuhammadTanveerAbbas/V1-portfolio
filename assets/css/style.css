@@ -872,7 +872,7 @@ body.light-theme .social-link:hover {
     }
 
     #banner::before {
-        font-size: clamp(4.5rem, 16vw, 8rem);
+        font-size: clamp(3.5rem, 14vw, 7rem);
         opacity: 0.3;
         padding: 0 1rem;
         max-width: calc(100vw - 2rem);
@@ -881,11 +881,20 @@ body.light-theme .social-link:hover {
         line-height: 0.9;
     }
 
+    #banner .title {
+        font-size: clamp(2.5rem, 7vw, 6rem);
+    }
+
     .content-fit .des p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.6;
-        text-align: center;
+        text-align: left;
         padding: 0 1rem;
+    }
+    
+    .page-title {
+        margin-top: -1rem;
+        margin-bottom: 1rem;
     }
 
     .contact-icons {

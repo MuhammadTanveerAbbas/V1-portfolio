@@ -883,12 +883,15 @@ body.light-theme .social-link:hover {
 
     #banner .title {
         font-size: clamp(2.5rem, 7vw, 6rem);
+        width: 100%;
+        padding: 0 1rem;
     }
 
     .content-fit .des p {
         font-size: 0.85rem;
         line-height: 1.6;
         text-align: left;
+        width: 100%;
         padding: 0 1rem;
     }
     

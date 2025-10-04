@@ -885,6 +885,8 @@ body.light-theme .social-link:hover {
         font-size: clamp(2.5rem, 7vw, 6rem);
         width: 100%;
         padding: 0 1rem;
+        text-align: center;
+        margin: 0 auto;
     }
 
     .content-fit .des p {

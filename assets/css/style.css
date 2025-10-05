@@ -195,6 +195,7 @@ nav a:hover::after {
     border-radius: 50%;
     transition: transform 0.2s ease;
     z-index: 1;
+    transform: translateX(28px);
 }
 
 .theme-toggle:active {
@@ -203,6 +204,10 @@ nav a:hover::after {
 
 .theme-toggle.active::before {
     transform: translateX(28px);
+}
+
+body:not(.light-theme) .theme-toggle::before {
+    transform: translateX(0);
 }
 
 /* ========== Mobile Menu ========== */

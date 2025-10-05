@@ -130,6 +130,30 @@
     </section>
 
     <script>
+        // Theme management
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Apply saved theme on page load (default to light theme)
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.classList.add('active');
+        }
+
+        themeToggle.addEventListener('click', function () {
+            body.classList.toggle('light-theme');
+            this.classList.toggle('active');
+            
+            // Save theme preference
+            if (body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Smooth navigation
         document.querySelectorAll("nav a[href^='#']").forEach(link => {
             link.addEventListener("click", function (e) {
                 e.preventDefault();
@@ -140,11 +164,7 @@
             });
         });
 
-        document.getElementById('themeToggle').addEventListener('click', function () {
-            document.body.classList.toggle('light-theme');
-            this.classList.toggle('active');
-        });
-
+        // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');

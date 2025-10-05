@@ -175,12 +175,12 @@
     </section>
 
     <script>
-        // Theme Toggle
+        // Theme management
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
+        // Apply saved theme on page load (default to light theme)
+        const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'light') {
             body.classList.add('light-theme');
             themeToggle.classList.add('active');

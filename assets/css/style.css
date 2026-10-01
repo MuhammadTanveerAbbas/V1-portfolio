@@ -1,6 +1,5 @@
 /* Optimized font loading with display: swap and fallback stacks */
 @import url('https://fonts.cdnfonts.com/css/devil-breeze?display=swap');
-@import url('https://fonts.cdnfonts.com/css/poppins?display=swap');
 @import url('https://fonts.cdnfonts.com/css/bimbo?display=swap');
 
 /* ========== Reset & Base ========== */
@@ -16,7 +15,7 @@ html {
 }
 
 body {
-    font: 0.875rem/1.6 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font: 0.875rem/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     color: #ffffff;
     background: #000000;
     overflow-x: hidden;

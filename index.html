@@ -7,16 +7,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Tanveer | Web Developer</title>
 
-    <!-- Font optimization -->
     <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/devil-breeze" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/bimbo" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/devil-breeze">
-        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/bimbo">
-    </noscript>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/devil-breeze">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/bimbo">
 
     <link rel="stylesheet" href="assets/css/style.css" />
+    <style>html{visibility:hidden;opacity:0}</style>
 </head>
 
 <body>
@@ -128,6 +124,11 @@
     </section>
 
     <script>
+        document.fonts.ready.then(() => {
+            document.documentElement.style.visibility = 'visible';
+            document.documentElement.style.opacity = '1';
+        });
+
         // Theme management
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;

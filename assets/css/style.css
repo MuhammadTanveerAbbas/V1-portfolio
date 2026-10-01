@@ -1,6 +1,12 @@
-/* Optimized font loading with display: swap and fallback stacks */
-@import url('https://fonts.cdnfonts.com/css/devil-breeze?display=swap');
-@import url('https://fonts.cdnfonts.com/css/bimbo?display=swap');
+@font-face {
+    font-family: 'Devil Breeze';
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Bimbo';
+    font-display: block;
+}
 
 /* ========== Reset & Base ========== */
 * {
